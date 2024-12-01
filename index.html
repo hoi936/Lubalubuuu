@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUBULUBU: Lịch ôn tập</title>
+  <style>
+    body {
+      padding: 5px;
+      background: #e6daca;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .header {
+      text-align: center;
+      background: #d69a92;
+      padding: 20px;
+    }
+
+    .header h1 {
+      color: #385e73;
+      font-size: 36px;
+    }
+
+    .header blockquote {
+      color: #54657c;
+      font-style: italic;
+    }
+
+    .topnav {
+      background-color: #c95f61;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topnav a {
+      color: #f2f2f2;
+      text-decoration: none;
+      margin: 0 10px;
+      padding: 10px 15px;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .topnav a {
+        display: none;
+      }
+
+      .topnav.active a {
+        display: block;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
+
+    .main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .leftcolumn {
+      flex: 2;
+      background: #e6daca;
+    }
+
+    .rightcolumn {
+      flex: 1;
+      background: #e6daca;
+      padding: 10px;
+    }
+
+    .boximg {
+      background-color: #d69a92;
+      padding: 20px;
+      margin-top: 10px;
+    }
+
+    .boximg img {
+      width: 100%;
+      height: auto;
+    }
+
+    .boximg p {
+      text-align: center;
+      font-style: italic;
+    }
+
+    .box {
+      background-color: #d69a92;
+      padding: 20px;
+      margin-top: 10px;
+    }
+
+    .addSchedule {
+      margin: 20px auto;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      background-color: #d7beaf;
+    }
+
+    .addSchedule label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    .addSchedule input,
+    .addSchedule select,
+    .addSchedule button {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    table {
+      width: 100%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: #d69a92;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #ddbeb2;
+    }
+
+    td {
+      min-height: 50px;
+      vertical-align: top;
+      background-color: #e7c8b9;
+    }
+
+    .boxtest {
+      background-color: #d69a92;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    .test {
+      background-color: #e7c8b9;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .notice {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: antiquewhite;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .notice-icon {
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>LUBALUBU >.<</h1>
+    <blockquote>Chào bạn, hãy làm việc năng suất nhé!</blockquote>
+  </div>
+  <div class="topnav">
+    <span class="menu-btn" onclick="toggleMenu()">☰ Menu</span>
+    <a href="#">Trang chủ</a>
+    <a href="#">Lịch ôn tập</a>
+    <a href="#">Lịch trong tuần</a>
+    <a href="#">Lịch trong ngày</a>
+  </div>
+  <h2>Lịch ôn tập</h2>
+  <div class="main">
+    <div class="leftcolumn">
+      <div class="boximg">
+        <img src="https://i.pinimg.com/736x/57/a9/93/57a993bbdd0a199ed12bc4bf441d05f2.jpg" alt="chill" />
+        <p>Mưa nào mà hông tạnh</p>
+      </div>
+      <div class="box">
+        <div class="addSchedule">
+          <h3>Thêm lịch</h3>
+          <label for="type">Loại:</label>
+          <select id="type">
+            <option value="Thi">Thi</option>
+            <option value="Ôn tập">Ôn tập</option>
+          </select>
+          <label for="subject">Môn học:</label>
+          <input type="text" id="subject" placeholder="Nhập tên môn học ở đây nha!" />
+          <label for="day">Ngày:</label>
+          <select id="day">
+            <option value="Thứ hai">Thứ hai</option>
+            <option value="Thứ ba">Thứ ba</option>
+            <option value="Thứ tư">Thứ tư</option>
+            <option value="Thứ năm">Thứ năm</option>
+            <option value="Thứ sáu">Thứ sáu</option>
+            <option value="Thứ bảy">Thứ bảy</option>
+            <option value="Chủ nhật">Chủ nhật</option>
+          </select>
+          <label for="time">Thời gian:</label>
+          <input type="time" id="time" />
+          <button class="add" onclick="addSchedule()">Click để thêm lịch vào bảng</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Buổi</th>
+              <th>Thứ hai</th>
+              <th>Thứ ba</th>
+              <th>Thứ tư</th>
+              <th>Thứ năm</th>
+              <th>Thứ sáu</th>
+              <th>Thứ bảy</th>
+              <th>Chủ nhật</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sáng</td>
+              <td id="Thứ hai-sáng"></td>
+              <td id="Thứ ba-sáng"></td>
+              <td id="Thứ tư-sáng"></td>
+              <td id="Thứ năm-sáng"></td>
+              <td id="Thứ sáu-sáng"></td>
+              <td id="Thứ bảy-sáng"></td>
+              <td id="Chủ nhật-sáng"></td>
+            </tr>
+            <tr>
+              <td>Chiều</td>
+              <td id="Thứ hai-chiều"></td>
+              <td id="Thứ ba-chiều"></td>
+              <td id="Thứ tư-chiều"></td>
+              <td id="Thứ năm-chiều"></td>
+              <td id="Thứ sáu-chiều"></td>
+              <td id="Thứ bảy-chiều"></td>
+              <td id="Chủ nhật-chiều"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="rightcolumn">
+      <div class="boxtest">
+        <div class="test">
+          <p>Dựa vào lịch thi đã cập nhật thì thứ tự các môn thi của bạn như sau:</p>
+          <ol>
+            <li>Cơ sở dữ liệu</li>
+            <li>Kinh tế chính trị Mác - Lênin</li>
+            <li>Chủ nghĩa xã hội khoa học</li>
+            <li>Vật lí 1</li>
+            <li>Tiếng Nhật</li>
+            <li>Lịch sử Đảng</li>
+            <li>Tiếng Anh</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="notice">
+    <span class="notice-icon" onclick="closeNotice()">❌</span>
+    Đừng quên hoàn thành lịch thi hôm nay nha!
+  </div>
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector(".topnav");
+      nav.classList.toggle("active");
+    }
+
+    function closeNotice() {
+      const notice = document.querySelector(".notice");
+      notice.style.display = "none";
+    }
+
+    function addSchedule() {
+      // Thêm logic ở đây khi cần!
+      alert("Đã thêm lịch thành công!");
+    }
+  </script>
+</body>
+</html>

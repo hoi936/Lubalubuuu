@@ -1,0 +1,33 @@
+/* Container chính */
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+}
+
+/* Bố trí cột */
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Cột trái */
+.leftcolumn {
+  flex: 2;
+  background: #e6daca;
+}
+
+/* Cột phải */
+.rightcolumn {
+  flex: 1;
+  background: #e6daca;
+  padding: 10px;
+}
+
+/* Đảm bảo ảnh tự điều chỉnh */
+.boximg img {
+  max-width: 100%;
+  height: auto;
+}
